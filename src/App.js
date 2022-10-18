@@ -2,6 +2,29 @@ import Card from "./components/Card";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 
+const arr =[
+  {
+    title: 'Mens Sneakers Nike Blazer Mid Suede', 
+    price: 499,
+    imageUrl: '/img/sneakers/1.jpg',
+  },
+  {
+    title: 'Mens Sneakers Nike Air Max 270', 
+    price: 250,
+    imageUrl: '/img/sneakers/2.jpg',
+  },
+  {
+    title: 'Mens Sneakers Nike Blazer Mid Suede', 
+    price: 399,
+    imageUrl: '/img/sneakers/3.jpg',
+  },
+  {
+    title: 'Sneakers Puma X Aka Boku Future Rider', 
+    price: 299,
+    imageUrl: '/img/sneakers/4.jpg',
+  },
+];
+
 function App() {
   return (
     <div className='wrapper clear'>
@@ -13,63 +36,20 @@ function App() {
             <div className="search-block d-flex">
               <img src="/img/search.svg" alt="Search" />
               <input placeholder="Search..."/>
-          </div>
+            </div>
         </div>
 
         <div className="d-flex">
-          <Card />
+          {arr.map((obj) => (
+            <Card 
+              title={obj.title}
+              price={obj.price}
+              imageUrl={obj.imageUrl}
+              onFavorite={() => console.log('Add to favorite')}
+              onPlus={() => console.log('Click plus')}
+            />
+          ))} 
 
-          <div className="cart">
-          <div className="favorite">
-              <img src="/img/heart-unliked.svg" alt="Unliked" />
-            </div>
-            <img width={133} height={112} src="/img/sneakers/2.jpg" alt="" />
-            <h5>Men's Sneakers Nike Air Max 270</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column">
-                <span>Price:</span>
-                <b>250€</b>
-              </div>
-              <button className="button">
-                <img width={11} height={11} src="/img/plus.svg" alt="Plus" />
-              </button>
-          </div>
-          </div>
-
-          <div className="cart">
-          <div className="favorite">
-              <img src="/img/heart-unliked.svg" alt="Unliked" />
-            </div>
-            <img width={133} height={112} src="/img/sneakers/3.jpg" alt="" />
-            <h5>Men's Sneakers Nike Blazer Mid Suede</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column">
-                <span>Price:</span>
-                <b>250€</b>
-              </div>
-              <button className="button">
-                <img width={11} height={11} src="/img/plus.svg" alt="Plus" />
-              </button>
-          </div>
-          </div>
-
-          <div className="cart">
-          <div className="favorite">
-              <img src="/img/heart-unliked.svg" alt="Unliked" />
-            </div>
-            <img width={133} height={112} src="/img/sneakers/4.jpg" alt="" />
-            <h5>Sneakers Puma X Aka Boku Future Rider</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column">
-                <span>Price:</span>
-                <b>250€</b>
-              </div>
-              <button className="button">
-                <img width={11} height={11} src="/img/plus.svg" alt="Plus" />
-              </button>
-          </div>
-          </div>
-          
         </div>
 
       </div>
